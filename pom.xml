@@ -3,6 +3,9 @@
   <groupId>com</groupId>
   <artifactId>ValkCore</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
   <build>
       <plugins>
           <plugin>
@@ -22,6 +25,11 @@
            <version>1.13.2-R0.1-SNAPSHOT</version><!--change this value depending on the version-->
            <type>jar</type>
            <scope>provided</scope>
+       </dependency>
+       <dependency>
+       	<groupId>com</groupId>
+       	<artifactId>vinkaitems</artifactId>
+       	<version>0.0.1-SNAPSHOT</version>
        </dependency>
    </dependencies>
 </project>

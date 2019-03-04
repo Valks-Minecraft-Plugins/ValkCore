@@ -34,5 +34,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/valkyrienyanko/Documents/worldedit-bukkit-7.0.0-beta-04.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
