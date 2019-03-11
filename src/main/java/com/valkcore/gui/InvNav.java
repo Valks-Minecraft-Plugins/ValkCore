@@ -51,7 +51,6 @@ public class InvNav {
 	
 	protected void nextPage() {
 		int maxPages = (int) Math.ceil(items.size() / (double) (size - 9));
-		System.out.println(maxPages);
 		page = Math.min(maxPages, page + 1);
 		openInv();
 	}
@@ -71,6 +70,10 @@ public class InvNav {
 	
 	protected String getTitle() {
 		return title;
+	}
+	
+	protected int getSize() {
+		return size;
 	}
 	
 	protected int getItemSlot(int slot) {
