@@ -6,8 +6,11 @@ import org.bukkit.plugin.java.JavaPlugin;
 import com.valkcore.gui.InvNavListener;
 
 public class ValkCore extends JavaPlugin {
+	public static ValkCore plugin;
+	
 	@Override
 	public void onEnable() {
+		plugin = this;
 		registerListeners();
 	}
 	
