@@ -132,6 +132,66 @@ public class BlockModule {
 			return false;
 		}
 	}
+	
+	/*
+	 * Reference: https://minecraft-ids.grahamedgecombe.com
+	 * Left off on ID 99
+	 */
+	public static boolean isMineBlock(Material type) {
+		switch (type) {
+		case STONE:
+		case GRANITE:
+		case POLISHED_GRANITE:
+		case DIORITE:
+		case POLISHED_DIORITE:
+		case ANDESITE:
+		case POLISHED_ANDESITE:
+		case COBBLESTONE:
+		case GOLD_ORE:
+		case IRON_ORE:
+		case COAL_ORE:
+		case LAPIS_ORE:
+		case LAPIS_BLOCK:
+		case DISPENSER:
+		case SANDSTONE:
+		case CHISELED_SANDSTONE:
+		case SMOOTH_SANDSTONE:
+		case GOLD_BLOCK:
+		case IRON_BLOCK:
+		case STONE_SLAB:
+		case SANDSTONE_SLAB:
+		case COBBLESTONE_SLAB:
+		case STONE_BRICK_SLAB:
+		case NETHER_BRICK_SLAB:
+		case QUARTZ_SLAB:
+		case BRICKS:
+		case MOSSY_COBBLESTONE:
+		case OBSIDIAN:
+		case SPAWNER:
+		case DIAMOND_ORE:
+		case DIAMOND_BLOCK:
+		case FURNACE:
+		case COBBLESTONE_STAIRS:
+		case STONE_PRESSURE_PLATE:
+		case IRON_DOOR:
+		case REDSTONE_ORE:
+		case STONE_BUTTON:
+		case ICE:
+		case NETHERRACK:
+		case GLOWSTONE:
+		case INFESTED_CHISELED_STONE_BRICKS:
+		case INFESTED_COBBLESTONE:
+		case INFESTED_CRACKED_STONE_BRICKS:
+		case INFESTED_MOSSY_STONE_BRICKS:
+		case INFESTED_STONE:
+		case INFESTED_STONE_BRICKS:
+		case STONE_BRICKS:
+		case MOSSY_STONE_BRICKS:
+			return true;
+		default:
+			return false;
+		}
+	}
 
 	public static boolean isPlant(Material type) {
 		switch (type) {
