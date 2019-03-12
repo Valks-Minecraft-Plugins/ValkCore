@@ -133,6 +133,16 @@ public class BlockModule {
 		}
 	}
 	
+	public static boolean isLiquid(Material type) {
+		switch (type) {
+		case WATER:
+		case LAVA:
+			return true;
+		default:
+			return false;
+		}
+	}
+	
 	/*
 	 * Reference: https://minecraft-ids.grahamedgecombe.com
 	 * Left off on ID 99
