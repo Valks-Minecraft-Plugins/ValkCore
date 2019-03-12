@@ -133,6 +133,27 @@ public class BlockModule {
 		}
 	}
 	
+	public static boolean isStation(Material type) {
+		switch (type) {
+		case CRAFTING_TABLE:
+		case FURNACE:
+		case ENCHANTING_TABLE:
+		case BREWING_STAND:
+		case CAULDRON:
+		case CHEST:
+		case DISPENSER:
+		case DROPPER:
+		case JUKEBOX:
+		case ENDER_CHEST:
+		case COMMAND_BLOCK:
+		case TRAPPED_CHEST:
+		case HOPPER:
+			return true;
+		default:
+			return false;
+		}
+	}
+	
 	public static boolean isLiquid(Material type) {
 		switch (type) {
 		case WATER:
