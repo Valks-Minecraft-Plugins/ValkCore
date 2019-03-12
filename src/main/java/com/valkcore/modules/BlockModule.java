@@ -7,7 +7,22 @@ import org.bukkit.block.BlockFace;
 import org.bukkit.event.block.BlockBreakEvent;
 
 public class BlockModule {
+	/*
+	 * Note that Material has the following for comparing.
+	 * isBlock()
+	 * isBurnable()
+	 * isEdible()
+	 * isFlammable()
+	 * isFuel()
+	 * isInteractable()
+	 * isItem()
+	 * isOccluding()
+	 * isRecord()
+	 * isSolid()
+	 */
+	
 	public static boolean isLog(Material type) {
+		
 		switch (type) {
 		case ACACIA_LOG:
 		case BIRCH_LOG:
