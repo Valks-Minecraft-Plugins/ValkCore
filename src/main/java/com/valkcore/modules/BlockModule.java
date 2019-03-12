@@ -133,6 +133,18 @@ public class BlockModule {
 		}
 	}
 	
+	public static boolean isChest(Material type) {
+		switch (type) {
+		case CHEST:
+		case CHEST_MINECART:
+		case ENDER_CHEST:
+		case TRAPPED_CHEST:
+			return true;
+		default:
+			return false;
+		}
+	}
+	
 	public static boolean isStation(Material type) {
 		switch (type) {
 		case CRAFTING_TABLE:
