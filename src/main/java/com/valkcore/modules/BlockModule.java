@@ -20,13 +20,29 @@ public class BlockModule {
 			return false;
 		}
 	}
-	
-	public static Block[] getAdjacentBlocks(Block center) {
-		return new Block[] { center.getRelative(BlockFace.DOWN), center.getRelative(BlockFace.UP),
-				center.getRelative(BlockFace.WEST), center.getRelative(BlockFace.EAST),
-				center.getRelative(BlockFace.NORTH), center.getRelative(BlockFace.SOUTH) };
+
+	public static Block[] getAxisBlocks(Block center) {
+		return getBlockFaces(center,
+				new BlockFace[] { BlockFace.SOUTH, BlockFace.WEST, BlockFace.NORTH, BlockFace.EAST });
 	}
-	
+
+	public static Block[] getRadialBlocks(Block center) {
+		return getBlockFaces(center, new BlockFace[] { BlockFace.SOUTH, BlockFace.SOUTH_WEST, BlockFace.WEST,
+				BlockFace.NORTH_WEST, BlockFace.NORTH, BlockFace.NORTH_EAST, BlockFace.EAST, BlockFace.SOUTH_EAST });
+	}
+
+	public static Block[] getAdjacentBlocks(Block center) {
+		return getBlockFaces(center, new BlockFace[] { BlockFace.DOWN, BlockFace.UP, BlockFace.NORTH, BlockFace.EAST,
+				BlockFace.SOUTH, BlockFace.WEST });
+	}
+
+	private static Block[] getBlockFaces(Block center, BlockFace[] faces) {
+		Block[] blocks = new Block[faces.length];
+		for (int n = 0; n < faces.length; n++)
+			blocks[n] = center.getRelative(faces[n]);
+		return blocks;
+	}
+
 	public static void superBlockGravity(BlockBreakEvent e) {
 		for (Block b : BlockModule.getAdjacentBlocks(e.getBlock())) {
 			if (b.getRelative(BlockFace.DOWN).getType() == Material.AIR) {
@@ -35,9 +51,9 @@ public class BlockModule {
 			}
 		}
 	}
-	
+
 	public static boolean isStrippedWood(Material type) {
-		switch(type) {
+		switch (type) {
 		case STRIPPED_ACACIA_LOG:
 		case STRIPPED_ACACIA_WOOD:
 		case STRIPPED_BIRCH_LOG:
@@ -55,7 +71,7 @@ public class BlockModule {
 			return false;
 		}
 	}
-	
+
 	public static boolean isLeaves(Material type) {
 		switch (type) {
 		case ACACIA_LEAVES:
