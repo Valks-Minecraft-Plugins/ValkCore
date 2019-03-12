@@ -13,12 +13,12 @@ import org.bukkit.inventory.ItemStack;
 
 import com.valkcore.modules.ItemModule;
 
-public class InvItemBuilder {
-	public static Map<UUID, InvItemBuilder> invItemBuilder = new HashMap<UUID, InvItemBuilder>();
+public class GUIItemBuilder extends GUI {
+	public static Map<UUID, GUIItemBuilder> invItemBuilder = new HashMap<UUID, GUIItemBuilder>();
 	private ItemStack item;
 	private Material material;
 	
-	public InvItemBuilder(Player p) {
+	public GUIItemBuilder(Player p) {
 		material = Material.BEEF;
 		item = new ItemStack(material);
 		invItemBuilder.put(p.getUniqueId(), this);

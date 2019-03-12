@@ -13,20 +13,22 @@ import org.bukkit.inventory.ItemStack;
 
 import com.google.common.primitives.Ints;
 
-public class InvNav {
-	public static Map<UUID, InvNav> invNav = new HashMap<UUID, InvNav>();
+public class GUINavigation extends GUI {
+	public static Map<UUID, GUINavigation> invNav = new HashMap<UUID, GUINavigation>();
 	private Player p;
 	private int size;
 	private String title;
 	private int page;
+	private boolean itemBuilder;
 	private List<ItemStack> items;
 	
-	public InvNav(Player p, List<ItemStack> items, int rows, String title) {
+	public GUINavigation(Player p, List<ItemStack> items, int rows, String title) {
 		this.p = p;
 		this.size = Ints.constrainToRange(rows, 2, 6) * 9;
 		this.title = title;
 		this.items = items;
 		this.page = 1;
+		this.itemBuilder = false;
 		invNav.put(p.getUniqueId(), this);
 	}
 	
@@ -47,6 +49,14 @@ public class InvNav {
 		}
 		
 		return inv;
+	}
+	
+	public void setItemBuilder(boolean value) {
+		itemBuilder = value;
+	}
+	
+	public boolean isItemBuilder() {
+		return itemBuilder;
 	}
 	
 	protected void nextPage() {
