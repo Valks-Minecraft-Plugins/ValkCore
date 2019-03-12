@@ -30,7 +30,7 @@ public class InvNav {
 		invNav.put(p.getUniqueId(), this);
 	}
 	
-	private Inventory getInv() {
+	public Inventory getInv() {
 		Inventory inv = Bukkit.createInventory(p, size, title);
 		inv.setItem(size - 1, new ItemStack(Material.BLACK_STAINED_GLASS_PANE));
 		inv.setItem(size - 5, new ItemStack(Material.BLACK_STAINED_GLASS_PANE));
