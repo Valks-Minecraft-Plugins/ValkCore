@@ -10,10 +10,9 @@ public class ConfigInv extends ConfigResource {
 		super(config);
 	}
 	
-	@SuppressWarnings("deprecation")
 	public void set(String path, Inventory inv) {
 		super.setConfigResource(path);
-		super.config.set(path + ".title", inv.getTitle());
+		super.config.set(path + ".title", inv.getType().getDefaultTitle()); // <-- Weird way of getting the inventory title?
 		super.config.set(path + ".size", inv.getSize());
 		
 		int slot = 0;
