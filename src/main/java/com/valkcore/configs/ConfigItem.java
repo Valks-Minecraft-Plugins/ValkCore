@@ -1,10 +1,10 @@
 package com.valkcore.configs;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -15,47 +15,51 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public class ConfigItem extends ConfigResource {
+class ConfigItem extends ConfigResource {
 	public ConfigItem(ConfigManager config) {
 		super(config);
 	}
-	
+
+	public void setDefault(String path, ItemStack item) {
+		if (!super.config.isSet(path)) {
+			set(path, item);
+		}
+	}
+
 	public void set(String path, ItemStack item) {
 		super.setConfigResource(path);
-		
+
 		ItemMeta im = item.getItemMeta();
-		
+
 		String name = null;
 		List<String> lore = null;
 		Map<Enchantment, Integer> enchantments = null;
-		
+
 		int quantity = item.getAmount();
-		
-		List<String> flags = new ArrayList<String>();
-		List<String> enchants = new ArrayList<String>();
-		List<Integer> levels = new ArrayList<Integer>();
-		
+
+		List<String> flags = new ArrayList<>();
+		List<String> enchants = new ArrayList<>();
+		List<Integer> levels = new ArrayList<>();
+
 		if (im != null) {
 			name = im.getDisplayName();
 			lore = im.getLore();
 			enchantments = im.getEnchants();
-			
+
 			for (ItemFlag flag : im.getItemFlags())
 				flags.add(flag.name());
 		}
-		 
+
 		if (enchantments != null) {
-			Iterator<Entry<Enchantment, Integer>> iterator = enchantments.entrySet().iterator();
-			while(iterator.hasNext()) {
-				Entry<Enchantment, Integer> entry = iterator.next();
+			for (Entry<Enchantment, Integer> entry : enchantments.entrySet()) {
 				Enchantment enchant = EnchantmentWrapper.getByKey(entry.getKey().getKey());
 				enchants.add(enchant.getKey().getKey());
 				levels.add(entry.getValue());
 			}
 		}
-		
+
 		super.config.set(path + ".material", item.getType().name());
-		if (name != null && name != "")
+		if (name != null && !Objects.equals(name, ""))
 			super.config.set(path + ".name", name);
 		if (quantity != 1)
 			super.config.set(path + ".quantity", quantity);
@@ -72,16 +76,15 @@ public class ConfigItem extends ConfigResource {
 
 	public ItemStack get(String path) {
 		String materialName = super.config.getString(path + ".material");
-		String itemName = super.config.getString(path + ".name");
+		StringBuilder itemName = new StringBuilder(super.config.getString(path + ".name"));
 		List<String> configLore = super.config.getStringList(path + ".lore");
-		List<String> formattedLore = new ArrayList<String>();
 		List<String> itemFlags = super.config.getStringList(path + ".flags");
 		int quantity = super.config.getInt(path + ".quantity");
 
 		if (!super.config.isSet(path + ".quantity"))
 			quantity = 1;
 
-		Material material = null;
+		Material material;
 
 		try {
 			material = Material.valueOf(materialName);
@@ -91,11 +94,10 @@ public class ConfigItem extends ConfigResource {
 		}
 
 		if (itemName == null) {
-			itemName = "";
+			itemName = new StringBuilder();
 			String[] words = material.name().toLowerCase().split("_");
 			for (int i = 0; i < words.length; i++) {
-				itemName += words[i].substring(0, 1).toUpperCase() + words[i].substring(1)
-						+ (i == words.length - 1 ? "" : " ");
+				itemName.append(words[i].substring(0, 1).toUpperCase()).append(words[i].substring(1)).append(i == words.length - 1 ? "" : " ");
 			}
 		}
 
@@ -103,10 +105,9 @@ public class ConfigItem extends ConfigResource {
 		ItemMeta im = item.getItemMeta();
 
 		if (im != null) {
-			im.setDisplayName(itemName);
+			im.setDisplayName(itemName.toString());
 			if (configLore != null) {
-				for (String element : configLore)
-					formattedLore.add(element);
+				List<String> formattedLore = new ArrayList<>(configLore);
 				im.setLore(formattedLore);
 			}
 

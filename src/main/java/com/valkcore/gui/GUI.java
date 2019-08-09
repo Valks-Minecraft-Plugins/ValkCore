@@ -3,7 +3,7 @@ package com.valkcore.gui;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-public class GUI {
+class GUI {
 	public void fill(Inventory inv, ItemStack item, boolean force) {
 		for (int i = 0; i < inv.getSize(); i++) {
 			if (force)
@@ -14,7 +14,7 @@ public class GUI {
 			}
 		}
 	}
-	
+
 	public ItemStack findItem(ItemStack item) {
 		return null;
 	}

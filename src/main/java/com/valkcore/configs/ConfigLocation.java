@@ -4,14 +4,20 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
 
-public class ConfigLocation extends ConfigResource {
+class ConfigLocation extends ConfigResource {
 	public ConfigLocation(ConfigManager cm) {
 		super(cm);
 	}
-	
+
+	public void setDefault(String path, Location loc) {
+		if (!super.config.isSet(path)) {
+			set(path, loc);
+		}
+	}
+
 	public void set(String path, Location loc) {
 		super.setConfigResource(path);
-		
+
 		if (loc != null) {
 			super.config.set(path + ".world", loc.getWorld().getName());
 			super.config.set(path + ".x", loc.getX());
@@ -21,7 +27,7 @@ public class ConfigLocation extends ConfigResource {
 			super.config.set(path + ".pitch", loc.getPitch());
 		}
 	}
-	
+
 	public Location get(String path) {
 		World w = Bukkit.getWorld(super.config.getString(path + ".world"));
 		double x = super.config.getDouble(path + ".x");

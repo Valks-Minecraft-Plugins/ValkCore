@@ -4,7 +4,8 @@ import org.bukkit.block.Biome;
 
 import com.valkcore.ValkCore;
 
-public class WorldModule {
+@SuppressWarnings("ALL")
+class WorldModule {
 	public static boolean day() {
 		long time = ValkCore.getPlugin(ValkCore.class).getServer().getWorld("world").getTime();
 		return time < 12300 || time > 23850;

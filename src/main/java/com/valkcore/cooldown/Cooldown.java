@@ -4,9 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-public class Cooldown {
+@SuppressWarnings("ALL")
+class Cooldown {
 
-	private static Map<UUID, Cooldown> cooldowns = new HashMap<UUID, Cooldown>();
+	private static final Map<UUID, Cooldown> cooldowns = new HashMap<>();
 	private long start;
 	private final int timeInSeconds;
 	private final UUID id;
@@ -33,15 +34,14 @@ public class Cooldown {
 		return cooldowns.get(id);
 	}
 
-	public static int getTimeLeft(UUID id) {
+	private static int getTimeLeft(UUID id) {
 		Cooldown cooldown = getCooldown(id);
 		int f = -1;
 		if (cooldown != null) {
 			long now = System.currentTimeMillis();
 			long cooldownTime = cooldown.start;
-			int totalTime = cooldown.timeInSeconds;
 			int r = (int) (now - cooldownTime) / 1000;
-			f = (r - totalTime) * (-1);
+			f = (r - cooldown.timeInSeconds) * (-1);
 		}
 		return f;
 	}

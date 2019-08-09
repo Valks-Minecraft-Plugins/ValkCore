@@ -5,7 +5,8 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 
-public class MobModule {
+@SuppressWarnings("ALL")
+class MobModule {
 	public static int countMobsInChunk(Entity[] entities, EntityType type) {
 		int count = 0;
 		for (Entity entity : entities) {

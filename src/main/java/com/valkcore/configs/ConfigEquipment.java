@@ -5,54 +5,60 @@ import org.bukkit.inventory.ItemStack;
 
 import com.valkcore.customtypes.CustomEntityEquipment;
 
-public class ConfigEquipment extends ConfigResource {
+class ConfigEquipment extends ConfigResource {
 	public ConfigEquipment(ConfigManager cm) {
 		super(cm);
 	}
-	
+
+	public void setDefault(String path, EntityEquipment equip) {
+		if (!super.config.isSet(path)) {
+			set(path, equip);
+		}
+	}
+
 	public void set(String path, EntityEquipment equip) {
 		super.setConfigResource(path);
-		
+
 		ConfigItem configItem = new ConfigItem(super.cm);
-		
+
 		ItemStack helmet = equip.getHelmet();
 		ItemStack chestplate = equip.getChestplate();
 		ItemStack leggings = equip.getLeggings();
 		ItemStack boots = equip.getBoots();
 		ItemStack mainhand = equip.getItemInMainHand();
 		ItemStack offhand = equip.getItemInOffHand();
-		
+
 		if (helmet != null) {
 			configItem.set(path + ".helmet", helmet);
 			super.config.set(path + ".helmet.dropchance", equip.getHelmetDropChance());
 		}
-		
+
 		if (chestplate != null) {
 			configItem.set(path + ".chestplate", equip.getChestplate());
 			super.config.set(path + ".chestplate.dropchance", equip.getChestplateDropChance());
 		}
-		
+
 		if (leggings != null) {
 			configItem.set(path + ".leggings", equip.getLeggings());
 			super.config.set(path + ".leggings.dropchance", equip.getLeggingsDropChance());
 		}
-		
+
 		if (boots != null) {
 			configItem.set(path + ".boots", equip.getBoots());
 			super.config.set(path + ".boots.dropchance", equip.getBootsDropChance());
 		}
-		
+
 		if (mainhand != null) {
 			configItem.set(path + ".mainhand", equip.getItemInMainHand());
 			super.config.set(path + ".mainhand.dropchance", equip.getItemInMainHandDropChance());
 		}
-		
+
 		if (offhand != null) {
 			configItem.set(path + ".offhand", equip.getItemInOffHand());
 			super.config.set(path + ".offhand.dropchance", equip.getItemInOffHandDropChance());
 		}
 	}
-	
+
 	public CustomEntityEquipment get(String path) {
 		CustomEntityEquipment equip = new CustomEntityEquipment();
 		ConfigItem configItem = new ConfigItem(super.cm);

@@ -2,8 +2,8 @@ package com.valkcore.modules;
 
 import org.bukkit.Material;
 
-public class ToolModule {
-	public static boolean isAxe(Material tool) {
+class ToolModule {
+	private static boolean isAxe(Material tool) {
 		switch (tool) {
 		case WOODEN_AXE:
 		case STONE_AXE:
@@ -16,7 +16,7 @@ public class ToolModule {
 		}
 	}
 
-	public static boolean isPickaxe(Material tool) {
+	private static boolean isPickaxe(Material tool) {
 		switch (tool) {
 		case WOODEN_PICKAXE:
 		case STONE_PICKAXE:
@@ -29,7 +29,7 @@ public class ToolModule {
 		}
 	}
 
-	public static boolean isHoe(Material tool) {
+	private static boolean isHoe(Material tool) {
 		switch (tool) {
 		case WOODEN_HOE:
 		case STONE_HOE:
@@ -42,7 +42,7 @@ public class ToolModule {
 		}
 	}
 
-	public static boolean isShovel(Material tool) {
+	private static boolean isShovel(Material tool) {
 		switch (tool) {
 		case WOODEN_SHOVEL:
 		case STONE_SHOVEL:
@@ -55,7 +55,7 @@ public class ToolModule {
 		}
 	}
 
-	public static boolean isSword(Material tool) {
+	private static boolean isSword(Material tool) {
 		switch (tool) {
 		case WOODEN_SWORD:
 		case STONE_SWORD:
@@ -67,11 +67,11 @@ public class ToolModule {
 			return false;
 		}
 	}
-	
+
 	public static boolean isTool(Material tool) {
 		return isPickaxe(tool) || isAxe(tool) || isHoe(tool) || isShovel(tool);
 	}
-	
+
 	public static boolean isWeapon(Material tool) {
 		return isSword(tool) || tool == Material.BOW;
 	}

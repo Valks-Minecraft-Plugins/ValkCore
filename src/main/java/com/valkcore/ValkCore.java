@@ -6,14 +6,13 @@ import org.bukkit.plugin.java.JavaPlugin;
 import com.valkcore.gui.GUIListener;
 
 public class ValkCore extends JavaPlugin {
-	public static ValkCore plugin;
-	
+
 	@Override
 	public void onEnable() {
-		plugin = this;
+		ValkCore plugin = this;
 		registerListeners();
 	}
-	
+
 	private void registerListeners() {
 		PluginManager pm = getServer().getPluginManager();
 		pm.registerEvents(new GUIListener(), this);

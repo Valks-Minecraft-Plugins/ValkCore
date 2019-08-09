@@ -2,26 +2,26 @@ package com.valkcore.configs;
 
 import org.bukkit.configuration.file.YamlConfiguration;
 
-public class ConfigResource {
-	protected ConfigManager cm;
-	protected YamlConfiguration config;
+class ConfigResource {
+	final ConfigManager cm;
+	final YamlConfiguration config;
 
-	public ConfigResource(ConfigManager cm) {
+	ConfigResource(ConfigManager cm) {
 		this.cm = cm;
 		this.config = cm.getConfig();
 	}
-	
+
 	public String getPathParent(String path) {
 		String[] items = path.split("\\.");
-		String newPath = "";
+		StringBuilder newPath = new StringBuilder();
 		int uncutElements = items.length - 1;
 		for (int i = 0; i < uncutElements; i++) {
-			newPath += items[i] + (i == uncutElements - 1 ? "" : ".");
+			newPath.append(items[i]).append(i == uncutElements - 1 ? "" : ".");
 		}
-		return newPath;
+		return newPath.toString();
 	}
-	
-	protected void setConfigResource(String path) {
+
+	void setConfigResource(String path) {
 		config.set(path, null);
 	}
 }

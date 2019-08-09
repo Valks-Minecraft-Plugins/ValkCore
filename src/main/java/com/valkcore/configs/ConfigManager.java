@@ -6,13 +6,19 @@ import java.io.IOException;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
 
-public class ConfigManager {
-	private File file;
+class ConfigManager {
+	private final File file;
 	private YamlConfiguration config;
 
 	public ConfigManager(Plugin plugin, String name) {
 		file = new File(plugin.getDataFolder(), name + ".yml");
 		config = YamlConfiguration.loadConfiguration(file);
+	}
+
+	public void setDefault(String path, Object value) {
+		if (!config.isSet(path)) {
+			config.set(path, value);
+		}
 	}
 
 	public void saveConfig() {

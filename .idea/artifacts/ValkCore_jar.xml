@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="ValkCore:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ValkCore_jar</output-path>
+    <root id="archive" name="ValkCore.jar">
+      <element id="module-output" name="ValkCore" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>

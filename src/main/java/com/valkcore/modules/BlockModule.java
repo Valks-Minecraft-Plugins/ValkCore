@@ -6,7 +6,7 @@ import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.event.block.BlockBreakEvent;
 
-public class BlockModule {
+class BlockModule {
 	/*
 	 * Note that Material has the following for comparing.
 	 * isBlock()
@@ -20,9 +20,9 @@ public class BlockModule {
 	 * isRecord()
 	 * isSolid()
 	 */
-	
-	public static boolean isLog(Material type) {
-		
+
+	private static boolean isLog(Material type) {
+
 		switch (type) {
 		case ACACIA_LOG:
 		case BIRCH_LOG:
@@ -46,7 +46,7 @@ public class BlockModule {
 				BlockFace.NORTH_WEST, BlockFace.NORTH, BlockFace.NORTH_EAST, BlockFace.EAST, BlockFace.SOUTH_EAST });
 	}
 
-	public static Block[] getAdjacentBlocks(Block center) {
+	private static Block[] getAdjacentBlocks(Block center) {
 		return getBlockFaces(center, new BlockFace[] { BlockFace.DOWN, BlockFace.UP, BlockFace.NORTH, BlockFace.EAST,
 				BlockFace.SOUTH, BlockFace.WEST });
 	}
@@ -147,7 +147,7 @@ public class BlockModule {
 			return false;
 		}
 	}
-	
+
 	public static boolean isChest(Material type) {
 		switch (type) {
 		case CHEST:
@@ -159,7 +159,7 @@ public class BlockModule {
 			return false;
 		}
 	}
-	
+
 	public static boolean isStation(Material type) {
 		switch (type) {
 		case CRAFTING_TABLE:
@@ -180,7 +180,7 @@ public class BlockModule {
 			return false;
 		}
 	}
-	
+
 	public static boolean isLiquid(Material type) {
 		switch (type) {
 		case WATER:
@@ -190,7 +190,7 @@ public class BlockModule {
 			return false;
 		}
 	}
-	
+
 	/*
 	 * Reference: https://minecraft-ids.grahamedgecombe.com
 	 * Left off on ID 99
