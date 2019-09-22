@@ -3,6 +3,8 @@ ValkCore is a package of utilities that may assist you in plugins that you devel
 
 Do not use this core plugin as a direct dependency as there are some unneeded GUI listeners that could potentially slow down your plugin. Instead simply copy the class you want to use and put it in your Utils package.
 
+If you're using intelliJ or another IDE, simply ignore all eclipse related files in this repository.
+
 ### Contributing
 If you're interested in contributing, send me a message over on discord at **valk#3277**.
 
