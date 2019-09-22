@@ -46,8 +46,8 @@ You no longer have to use `ChatColor.TranslateAlternateColorCodes(...)`, instead
 Bukkit.broadcastMessage(TextModule.color("&cRed &dPink"));
 ```
 
-### ConfigItem
-Store items into a config.
+### Config
+In this example we will be dealing with the `ConfigItem` class. Lets store some items into a config.
 ```java
 // Create a config manager for the 'items.yml' config.
 ConfigManager cm = new ConfigManager("items"); 
