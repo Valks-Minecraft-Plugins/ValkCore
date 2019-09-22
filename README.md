@@ -1,3 +1,8 @@
+### What is ValkCore?
+ValkCore is a package of utilities that may assist you in plugins that you develop.
+
+Do not use this core plugin as a direct dependency as there are some unneeded GUI listeners that could potentially slow down your plugin. Instead simply copy the class you want to use and put it in your Utils package.
+
 ### ConfigItem
 Store items into a config.
 ```java
