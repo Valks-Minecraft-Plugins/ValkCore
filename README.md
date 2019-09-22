@@ -6,6 +6,7 @@ Do not use this core plugin as a direct dependency as there are some unneeded GU
 ### Modules
 `BlockModule`, `ItemModule`, `MobModule`, `PlayerModule`, `TextModule`, `ToolModule`, and `WorldModule` have tons of static utility methods that you can use to your advantage. Here are some examples.
 
+#### Boolean
 Check if the block you're breaking is of type log. There are many other methods like this such as `isFarmable`, `isLeaves`, `isOre`, `isStrippedWood`, `isSoftBlock`, `isChest`, `isStation`, `isLiquid`, `isMineBlock`, and `isPlant`. Other methods exist like this in `MobModule`, `ToolModule` and `WorldModule`.
 ```java
 Material blockToBeMined = getBlockToBeMined();
@@ -13,10 +14,12 @@ if (BlockModule.isLog(blockToBeMined)) {
   // Do something.
 }
 ```
+#### Void
 Inside your BlockBreakEvent pass the event variable to this method and watch the magic unfold before your eyes.
 ```java
 BlockModule.treeGravity(event);
 ```
+#### ItemStack
 Tired of setting item meta manually? This will do it for you! Same idea goes for `tool`, `potion` and `splashPotion`.
 ```java
 ItemModule.item("ItemName", "Lore\nLine 2\nLine 3", Material.APPLE);
