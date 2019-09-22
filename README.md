@@ -4,7 +4,7 @@ ValkCore is a package of utilities that may assist you in plugins that you devel
 Do not use this core plugin as a direct dependency as there are some unneeded GUI listeners that could potentially slow down your plugin. Instead simply copy the class you want to use and put it in your Utils package.
 
 ### Modules
-`BlockModule`, `ItemModule`, `MobModule`, `PlayerModule`, `TextModule`, `ToolModule`, and `WorldModule` have tons of static utility methods that you can use to your advantage. Here are some examples.
+`BlockModule`, `ItemModule`, `MobModule`, `PlayerModule`, `TextModule`, `ToolModule`, and `WorldModule` have tons of static utility methods that you can use to your advantage. Some examples are listed below. **Not all methods are listed and I encourage you to look at the class code directly to get a better insight!**
 
 #### Boolean
 Check if the block you're breaking is of type log. There are many other methods like this such as `isFarmable`, `isLeaves`, `isOre`, `isStrippedWood`, `isSoftBlock`, `isChest`, `isStation`, `isLiquid`, `isMineBlock`, and `isPlant`. Other methods exist like this in `MobModule`, `ToolModule` and `WorldModule`.
@@ -12,6 +12,14 @@ Check if the block you're breaking is of type log. There are many other methods 
 Material blockToBeMined = getBlockToBeMined();
 if (BlockModule.isLog(blockToBeMined)) {
   // Do something.
+}
+```
+Another useful example would be to check if it's daytime using the `WorldModule`.
+```java
+if (WorldModule.day()) {
+  // It is day!
+} else {
+  // It is night!
 }
 ```
 
