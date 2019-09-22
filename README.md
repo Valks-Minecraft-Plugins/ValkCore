@@ -48,3 +48,20 @@ if (!Cooldown.isInCooldown(id)) {
   player.sendMessage("You're on cooldown! Please wait " + timeLeft + " more seconds!");
 }
 ```
+
+### Hologram
+Holograms are fairly easy to create. I encourage you to modify the hologram class to be one of your own. When I have time I may modify it myself.
+```java
+// Create our hologram at 'location' with the message "Hello world!"
+Hologram hologram = new Hologram(location, "Hello world!");
+// Holograms are set to invisible by default, so we make it visible.
+hologram.setVisible(true);
+// Update our hologram name.
+hologram.updateName("Hi!");
+// Move our hologram upwards.
+hologram.move();
+// Destroy our hologram.
+hologram.destroy();
+// You may want to put move() and destroy() into one or more bukkit runnables to get a dynamic effect.
+// This is why I encourage you to look into expanding the hologram class to automate these sorts of things.
+```
