@@ -3,6 +3,9 @@ ValkCore is a package of utilities that may assist you in plugins that you devel
 
 Do not use this core plugin as a direct dependency as there are some unneeded GUI listeners that could potentially slow down your plugin. Instead simply copy the class you want to use and put it in your Utils package.
 
+### Contributing
+If you're interested in contributing, send me a message over on discord at **valk#3277**.
+
 ### Modules
 `BlockModule`, `ItemModule`, `MobModule`, `PlayerModule`, `TextModule`, `ToolModule`, and `WorldModule` have tons of static utility methods that you can use to your advantage. Some examples are listed below. **Not all methods are listed and I encourage you to look at the class code directly to get a better insight!**
 
