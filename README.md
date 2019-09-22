@@ -14,15 +14,23 @@ if (BlockModule.isLog(blockToBeMined)) {
   // Do something.
 }
 ```
+
 #### Void
 Inside your BlockBreakEvent pass the event variable to this method and watch the magic unfold before your eyes.
 ```java
 BlockModule.treeGravity(event);
 ```
+
 #### ItemStack
 Tired of setting item meta manually? This will do it for you! Same idea goes for `tool`, `potion` and `splashPotion`.
 ```java
 ItemModule.item("ItemName", "Lore\nLine 2\nLine 3", Material.APPLE);
+```
+
+#### String
+You no longer have to use `ChatColor.TranslateAlternateColorCodes(...)`, instead you can simply do `TextModule.color("&2Color &amessage.")`. The method also has hard coded primary and secondary colors if you want your plugin to follow a theme with main 2 colors.
+```java
+Bukkit.broadcastMessage(TextModule.color("&cRed &dPink"));
 ```
 
 ### ConfigItem
