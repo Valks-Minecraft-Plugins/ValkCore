@@ -24,3 +24,22 @@ System.out.println(feather);
 System.out.println(coal); 
 ```
 The similar code structure can be applied to the `ConfigEquipment`, `ConfigInv`, `ConfigLocation`, and `ConfigPlayer`.
+
+### Cooldown
+Lets say we wanted to have a cooldown on a summon wolf command.
+```java
+// Cooldowns are tracked via player UUID.
+UUID id = player.getUniqueId();
+
+// Is there no cooldown in effect for this player?
+if (!Cooldown.isInCooldown(id)) {
+  // If so create a new cooldown for them.
+  new Cooldown(id, 10);
+  // Proceed with executing our summon command.
+  summonWolfPet("Snuppy");
+} else {
+  // Tell the player their still on cooldown.
+  int timeLeft = Cooldown.getTimeLeft(id);
+  player.sendMessage("You're on cooldown! Please wait " + timeLeft + " more seconds!");
+}
+```
